@@ -1,0 +1,30 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+option csharp_namespace = "OrderGrpcService";
+
+
+package OrderGrpcService;
+
+service OrderRpcService{
+	rpc GetOrderList(OrderListRequest) returns(OrderListReply){};
+	rpc AddOrder(Order) returns(google.protobuf.Empty){};
+}
+
+message OrderListRequest{
+
+}
+
+message OrderListReply{
+	repeated Order Orders = 1;
+}
+
+message AddOrderResponse{
+
+}
+message Order{
+	string OrderId =1;
+	string ProductName=2;
+	int32 Quantity=3;
+	int32 UnitPrice=4;
+	string Remark=5;
+}
