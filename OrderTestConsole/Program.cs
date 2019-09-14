@@ -9,6 +9,7 @@ namespace OrderTestConsole
     {
         static void Main(string[] args)
         {
+            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             //when use this channel will throw connection abort connection exceptioin;
             var channel = GrpcChannel.ForAddress("http://localhost:8888",new GrpcChannelOptions()
             {
